@@ -61,7 +61,8 @@ jobs:
           git submodule update --init core/Clash.Meta
           git -C core/Clash.Meta remote add upstream https://github.com/MetaCubeX/mihomo.git || true
           git -C core/Clash.Meta fetch upstream --tags --force
-          git -C core/Clash.Meta checkout a847246
+          git -C core/Clash.Meta tag -l
+          git -C core/Clash.Meta checkout v1.19.24
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
