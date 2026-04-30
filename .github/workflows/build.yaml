@@ -56,7 +56,10 @@ jobs:
           echo "keyAlias=${{ secrets.KEY_ALIAS }}" >> android/local.properties
           echo "storePassword=${{ secrets.STORE_PASSWORD }}" >> android/local.properties
           echo "keyPassword=${{ secrets.KEY_PASSWORD }}" >> android/local.properties
-
+      - name: Update Mihomo core
+          run: |
+            git -C core/Clash.Meta fetch --tags
+            git -C core/Clash.Meta checkout v1.19.24
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
